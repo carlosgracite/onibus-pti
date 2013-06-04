@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp" >
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/about_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="@dimen/about_title_paddingBottom"
+            android:text="@string/about_title"
+            android:textSize="@dimen/about_title" />
+
+        <TextView
+            android:id="@+id/about_text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/about_title"
+            android:paddingBottom="@dimen/about_content2_paddingBottom"
+            android:paddingLeft="@dimen/about_content_paddingLeft"
+            android:text="@string/about_text1"
+            android:textSize="@dimen/about_content" />
+        
+        <TextView
+            android:id="@+id/about_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/about_text1"
+            android:paddingBottom="@dimen/about_content1_paddingBottom"
+            android:paddingLeft="@dimen/about_content_paddingLeft"
+            android:text="@string/about_text2"
+            android:textSize="@dimen/about_content"
+            android:linksClickable="true"
+            android:autoLink="web" />
+
+        <TextView
+            android:id="@+id/version_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/about_text2"
+            android:paddingBottom="@dimen/about_title_paddingBottom"
+            android:text="@string/version_title"
+            android:textSize="@dimen/about_title" />
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/version_title"
+            android:paddingBottom="@dimen/about_content2_paddingBottom"
+            android:paddingLeft="@dimen/about_content_paddingLeft"
+            android:text="@string/version"
+            android:textSize="@dimen/about_content" />
+
+        <TextView
+            android:id="@+id/developer_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/version"
+            android:paddingBottom="@dimen/about_title_paddingBottom"
+            android:text="@string/developer_title"
+            android:textSize="@dimen/about_title" />
+
+        <TextView
+            android:id="@+id/developer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/developer_title"
+            android:paddingBottom="@dimen/about_content2_paddingBottom"
+            android:paddingLeft="@dimen/about_content_paddingLeft"
+            android:text="@string/developer_name_carlos"
+            android:textSize="@dimen/about_content" />
+    </RelativeLayout>
+
+</ScrollView>

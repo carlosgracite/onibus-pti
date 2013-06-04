@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ônibus PTI</string>
+    <string name="menu_settings">Configurações</string>
+    <string name="menu_list_all">Todos os horários</string>
+    <string name="menu_about">Sobre</string>
+    
+    <string name="close_btn">Fechar</string>
+    <string name="update_btn">Atualizar</string>
+    
+    <string name="barreira_label">Barreira - PTI</string>
+    <string name="pti_label">PTI - Barreira</string>
+    <string name="empty">-</string>
+    
+    
+    <!-- About -->
+    <string name="about_title">Sobre:</string>
+    <string name="about_text1">Permite visualizar o horário do transporte interno do Parque Tecnológico Itaipu.</string>
+    <string name="about_text2">A tabela de horários é atualizada com base no serviço disponibilizado pela Plataforma Digital de Informações PTI (http://pdi.pti.org.br).</string>
+    
+    <string name="version_title">Versão:</string>
+    <string name="version">2.0</string>
+    
+    <string name="developer_title">Desenvolvido por:</string>
+    <string name="developer_name_carlos">Carlos Eduardo Gracite do Amaral - carlosgracite@gmail.com</string>
+    
+    
+</resources>
