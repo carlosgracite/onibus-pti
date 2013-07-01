@@ -13,7 +13,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 public class BusTimeWidgetProvider extends AppWidgetProvider {
@@ -31,8 +30,6 @@ public class BusTimeWidgetProvider extends AppWidgetProvider {
 		ComponentName thisWidget = new ComponentName(context, BusTimeWidgetProvider.class);
 		int[] allWidgets = appWidgetManager.getAppWidgetIds(thisWidget);
 		
-		Log.d("WIDGET", "Oieeeeeeeeee");
-		
 		for (int widgetId : allWidgets) {
 			RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.bus_widget);
 			if (times != null && times.size() > 0)
@@ -44,7 +41,7 @@ public class BusTimeWidgetProvider extends AppWidgetProvider {
 			intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
 			intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
 			PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-			//remoteViews.setOnClickPendingIntent(, pendingIntent)
+			remoteViews.setOnClickPendingIntent(R.id.update_btn, pendingIntent);
 			appWidgetManager.updateAppWidget(widgetId, remoteViews);
 		}
 	}

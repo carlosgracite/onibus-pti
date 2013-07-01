@@ -2,20 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" 
+    android:background="#ffffff"
     android:baselineAligned="false"
-    android:background="#dddddd">
+    android:orientation="horizontal" 
+    android:gravity="center">
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical" 
-        android:layout_weight="1">
-
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
         <TextView
             android:id="@+id/textView1"
             android:layout_width="match_parent"
@@ -23,28 +20,25 @@
             android:layout_margin="5dp"
             android:background="#999999"
             android:gravity="center"
-            android:text="@string/barreira_label" />
+            android:text="@string/barreira_label"
+            android:textColor="#ffffff" />
 
         <TextView
-	        android:id="@+id/hour1"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
-	        android:gravity="center"
-	        android:text="@string/empty" />
+            android:id="@+id/hour1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/empty"
+            android:textColor="#000000" />
     </LinearLayout>
-    
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical" 
-        android:layout_weight="1">
-
+        android:layout_weight="1"
+        android:orientation="vertical" >
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
@@ -52,14 +46,23 @@
             android:layout_margin="5dp"
             android:background="#999999"
             android:gravity="center"
-            android:text="@string/pti_label" />
+            android:text="@string/pti_label"
+            android:textColor="#ffffff" />
 
         <TextView
-	        android:id="@+id/hour2"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
-	        android:gravity="center"
-	        android:text="@string/empty" />
+            android:id="@+id/hour2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/empty"
+            android:textColor="#000000" />
     </LinearLayout>
+    <ImageButton
+        android:id="@+id/update_btn"
+        style="@style/ButtonAppTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/update_btn"
+        android:src="@drawable/ic_btn_refresh" />
 </LinearLayout>
