@@ -78,7 +78,7 @@
             android:textSize="@dimen/about_title" />
 
         <TextView
-            android:id="@+id/developer"
+            android:id="@+id/developer_carlos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -86,7 +86,20 @@
             android:paddingBottom="@dimen/about_content2_paddingBottom"
             android:paddingLeft="@dimen/about_content_paddingLeft"
             android:text="@string/developer_name_carlos"
-            android:textSize="@dimen/about_content" />
+            android:textSize="@dimen/about_content"
+            android:autoLink="email" />
+        
+        <TextView
+            android:id="@+id/developer_fernando"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/developer_carlos"
+            android:paddingBottom="@dimen/about_content2_paddingBottom"
+            android:paddingLeft="@dimen/about_content_paddingLeft"
+            android:text="@string/developer_name_fernando"
+            android:textSize="@dimen/about_content"
+            android:autoLink="email" />
     </RelativeLayout>
 
 </ScrollView>

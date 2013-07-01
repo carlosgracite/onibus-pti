@@ -20,10 +20,11 @@
     <string name="about_text2">A tabela de horários é atualizada com base no serviço disponibilizado pela Plataforma Digital de Informações PTI (http://pdi.pti.org.br).</string>
     
     <string name="version_title">Versão:</string>
-    <string name="version">2.0</string>
+    <string name="version">2.1</string>
     
-    <string name="developer_title">Desenvolvido por:</string>
-    <string name="developer_name_carlos">Carlos Eduardo Gracite do Amaral - carlosgracite@gmail.com</string>
+    <string name="developer_title">Desenvolvedores:</string>
+    <string name="developer_name_carlos">- Carlos Eduardo Gracite do Amaral (carlosgracite@gmail.com)</string>
+    <string name="developer_name_fernando">- Fernando Geraldo Mantoan (contato@fernandomantoan.com)</string>
     
     
 </resources>
