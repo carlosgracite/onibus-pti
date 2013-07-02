@@ -2,6 +2,7 @@ package org.itai.onibuspti.fragment;
 
 import org.itai.onibuspti.R;
 import org.itai.onibuspti.activity.TimeActivity;
+import org.itai.onibuspti.dao.BusTimeDao;
 import org.itai.onibuspti.loader.DatabaseTaskLoader;
 
 import android.app.AlertDialog;
@@ -56,8 +57,11 @@ public class LoaderTaskFragment extends Fragment implements LoaderCallbacks<Stri
 			progressDialog.dismiss();
 		}
 		
-		if (message != null) {
+		// Se não houver dados no banco, apresenta mensagem de erro. 
+		BusTimeDao dao = new BusTimeDao(getActivity());
+		if (dao.queryNumEntries() == 0) {
 			showErrorDialog(message);
+
 		} else {
 			Intent intent = new Intent(getActivity(), TimeActivity.class);
 			getActivity().startActivity(intent);

@@ -60,10 +60,7 @@ public class DatabaseTaskLoader extends AsyncTaskLoader<String> {
 			}
 			
 		} catch (Exception e) {
-			List<BusTime> data = dao.queryAll();
-			if (data.size() == 0) {
-				message = "Não foi possível carregar os horários.";
-			}
+			message = "Não foi possível carregar os horários.";
 		}
 		
 		finished = true;
