@@ -1,19 +1,12 @@
 package org.itai.onibuspti.model;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 
 public class BusTime implements Parcelable {
-	
-	public static final DateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.US);
 
 	private long id;
-	private Date departureTime;
+	private String departureTime;
 	private String bus;
 	private String type;
 	private String local;
@@ -32,11 +25,11 @@ public class BusTime implements Parcelable {
 		this.id = id;
 	}
 
-	public Date getDepartureTime() {
+	public String getDepartureTime() {
 		return departureTime;
 	}
 
-	public void setDepartureTime(Date departureTime) {
+	public void setDepartureTime(String departureTime) {
 		this.departureTime = departureTime;
 	}
 
@@ -72,8 +65,7 @@ public class BusTime implements Parcelable {
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeLong(id);
-		if (departureTime != null)
-			dest.writeLong(departureTime.getTime());
+		dest.writeString(departureTime);
 		dest.writeString(bus);
 		dest.writeString(type);
 		dest.writeString(local);
@@ -81,7 +73,7 @@ public class BusTime implements Parcelable {
 
 	private void readFromParcel(Parcel in) {
 		id = in.readLong();
-		departureTime = new Date(in.readLong());
+		departureTime = in.readString();
 		bus = in.readString();
 		type = in.readString();
 		local = in.readString();

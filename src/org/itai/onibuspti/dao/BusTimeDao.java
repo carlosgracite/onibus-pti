@@ -1,6 +1,5 @@
 package org.itai.onibuspti.dao;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -9,6 +8,7 @@ import java.util.List;
 import org.itai.onibuspti.model.BusTime;
 import org.itai.onibuspti.model.Metadata;
 import org.itai.onibuspti.util.DatabaseHelper;
+import org.itai.onibuspti.util.DateUtils;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -28,7 +28,7 @@ public class BusTimeDao {
 	public static final String CREATE_TABLE = 
 			"CREATE TABLE " + TABLE_NAME + "("
 			+ COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-			+ COLUMN_DEPARTURE_TIME + " LONG, "
+			+ COLUMN_DEPARTURE_TIME + " TEXT, "
 			+ COLUMN_BUS + " TEXT, "
 			+ COLUMN_TYPE + " TEXT, "
 			+ COLUMN_LOCAL + " TEXT);";
@@ -123,16 +123,11 @@ public class BusTimeDao {
 	public List<BusTime> queryNext(int n, Date currentDate, String local) {
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
 		
-		long currentTime = 0;
-		
+		String currentTime = null;
 		
 		String type = dateToType(currentDate);
-		
-		try {
-			currentTime = BusTime.dateFormat.parse(BusTime.dateFormat.format(currentDate)).getTime();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+
+		currentTime = DateUtils.formatDate(currentDate);
 		
 		String where = COLUMN_LOCAL + "=? AND " + COLUMN_DEPARTURE_TIME + ">=? AND " + COLUMN_TYPE + "=?";
 		String[] whereArgs = new String[] {local, String.valueOf(currentTime), type};
@@ -201,7 +196,7 @@ public class BusTimeDao {
 
 	public ContentValues modelToContentValues(BusTime schedule) {
 		ContentValues values = new ContentValues();
-		values.put(COLUMN_DEPARTURE_TIME, schedule.getDepartureTime().getTime());
+		values.put(COLUMN_DEPARTURE_TIME, schedule.getDepartureTime());
 		values.put(COLUMN_BUS, schedule.getBus());
 		values.put(COLUMN_TYPE, schedule.getType());
 		values.put(COLUMN_LOCAL, schedule.getLocal());
@@ -212,7 +207,7 @@ public class BusTimeDao {
 	public BusTime cursorToModel(Cursor cursor) {
 		BusTime schedule = new BusTime();
 		schedule.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
-		schedule.setDepartureTime(new Date(cursor.getLong(cursor.getColumnIndex(COLUMN_DEPARTURE_TIME))));
+		schedule.setDepartureTime(cursor.getString(cursor.getColumnIndex(COLUMN_DEPARTURE_TIME)));
 		schedule.setBus(cursor.getString(cursor.getColumnIndex(COLUMN_BUS)));
 		schedule.setType(cursor.getString(cursor.getColumnIndex(COLUMN_TYPE)));
 		schedule.setLocal(cursor.getString(cursor.getColumnIndex(COLUMN_LOCAL)));

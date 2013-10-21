@@ -6,6 +6,7 @@ import java.util.List;
 import org.itai.onibuspti.R;
 import org.itai.onibuspti.dao.BusTimeDao;
 import org.itai.onibuspti.model.BusTime;
+import org.itai.onibuspti.util.DateUtils;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -33,9 +34,9 @@ public class BusTimeWidgetProvider extends AppWidgetProvider {
 		for (int widgetId : allWidgets) {
 			RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.bus_widget);
 			if (times != null && times.size() > 0)
-				remoteViews.setTextViewText(R.id.hour1, BusTime.dateFormat.format(times.get(0).getDepartureTime()));
+				remoteViews.setTextViewText(R.id.hour1, DateUtils.formatTime(times.get(0).getDepartureTime()));
 			if (timesTwo != null && timesTwo.size() > 0)
-				remoteViews.setTextViewText(R.id.hour2, BusTime.dateFormat.format(timesTwo.get(0).getDepartureTime()));
+				remoteViews.setTextViewText(R.id.hour2, DateUtils.formatTime(timesTwo.get(0).getDepartureTime()));
 			
 			Intent intent = new Intent(context, BusTimeWidgetProvider.class);
 			intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);

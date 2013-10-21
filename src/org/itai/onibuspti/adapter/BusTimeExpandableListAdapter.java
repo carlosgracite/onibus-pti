@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.itai.onibuspti.R;
 import org.itai.onibuspti.model.BusTime;
+import org.itai.onibuspti.util.DateUtils;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -66,7 +67,7 @@ public class BusTimeExpandableListAdapter extends BaseExpandableListAdapter {
 		ViewHolder viewHolder = (ViewHolder) convertView.getTag();
 		BusTime busTime = map.get(groups.get(groupPosition)).get(childPosition);
 		
-		viewHolder.text.setText(BusTime.dateFormat.format(busTime.getDepartureTime()));
+		viewHolder.text.setText(DateUtils.formatTime(busTime.getDepartureTime()));
 		
 		return convertView;
 	}

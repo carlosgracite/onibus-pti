@@ -12,7 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static DatabaseHelper instance = null;
 	
 	private static final String DATABASE_NAME = "bus_db";
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 
 	private DatabaseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -34,7 +34,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+		if (oldVersion == 1 && newVersion == 2) {
+			db.execSQL("DROP TABLE IF EXISTS " + MetadataDao.TABLE_NAME);
+			db.execSQL("DROP TABLE IF EXISTS " + BusTimeDao.TABLE_NAME);
+			
+			onCreate(db);
+		}
 	}
 	
 	@Override

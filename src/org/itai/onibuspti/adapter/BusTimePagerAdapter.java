@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.itai.onibuspti.model.BusTime;
+import org.itai.onibuspti.util.DateUtils;
 import org.itai.onibuspti.R;
 
 import android.content.Context;
@@ -37,7 +38,7 @@ public class BusTimePagerAdapter extends PagerAdapter {
 		
 		String text;
 		if (content.get(position) != null && content.get(position).getDepartureTime() != null)
-			text = BusTime.dateFormat.format(content.get(position).getDepartureTime());
+			text = DateUtils.formatTime(content.get(position).getDepartureTime());
 		else
 			text = "-";
 		

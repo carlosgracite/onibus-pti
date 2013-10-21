@@ -1,7 +1,6 @@
 package org.itai.onibuspti.json;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +26,8 @@ public class BusScheduleParser {
 		BusTime busTime = new BusTime();
 		
 		JSONObject obj = new JSONObject(json);
-		
-		try {
 			
-			busTime.setDepartureTime(dateFormat.parse(obj.getString(DEPARTURE_TIME)));
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		busTime.setDepartureTime(obj.getString(DEPARTURE_TIME));
 		busTime.setBus(obj.getString(BUS));
 		busTime.setType(obj.getString(TYPE));
 		busTime.setLocal(obj.getString(LOCAL));
